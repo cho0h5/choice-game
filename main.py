@@ -2,6 +2,7 @@ import random
 import time
 
 def generate_initial_player_state():
+    # 플레이어의 상태를 1의 자리수 수 중 랜덤으로 설정
     player_state = random.randint(1, 9)
     return player_state
 
@@ -31,6 +32,7 @@ def print_choices(choices):
     first_operand = str(choices[0][1])
     second_operator = choices[1][0]
     second_operand = str(choices[1][1])
+
     print("choices:\t", end="")
     print(first_operator + first_operand, end="")
     print(" / ", end="")
