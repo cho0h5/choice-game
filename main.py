@@ -44,6 +44,14 @@ if __name__ == "__main__":
     DIFFICULTY_DELTA = 1
     MULTIPLIER_RANGE = 10
 
+    print(3)
+    time.sleep(1)
+    print(2)
+    time.sleep(1)
+    print(1)
+    time.sleep(1)
+    print()
+
     while True:
         player_state = generate_initial_player_state()
         choices = generate_choices(player_state, DIFFICULTY_OF_CHOICES, DIFFICULTY_DELTA, MULTIPLIER_RANGE)
