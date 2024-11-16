@@ -25,6 +25,17 @@ def generate_choices(player_state, difficulty_of_choices, difficulty_delta, mult
     else:
         return (('+', addend), ('*', multiplier))
 
+def print_choices(choices):
+    first_operator = choices[0][0]
+    first_operand = str(choices[0][1])
+    second_operator = choices[1][0]
+    second_operand = str(choices[1][1])
+    print("choices:\t", end="")
+    print(first_operator + first_operand, end="")
+    print(" / ", end="")
+    print(second_operator + second_operand)
+
+
 if __name__ == "__main__":
     DIFFICULTY_OF_CHOICES = 5
     DIFFICULTY_DELTA = 1
@@ -33,4 +44,5 @@ if __name__ == "__main__":
     player_state = generate_initial_player_state()
 
     choices = generate_choices(player_state, DIFFICULTY_OF_CHOICES, DIFFICULTY_DELTA, MULTIPLIER_RANGE)
-    print(player_state, choices)
+    print("player_state:", player_state, sep='\t')
+    print_choices(choices)
