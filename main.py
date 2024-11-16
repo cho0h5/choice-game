@@ -18,11 +18,9 @@ def generate_choices(player_state, difficulty_of_choices, difficulty_delta, mult
     print(adjusted_difficulty)
 
     # 절반의 확률로 addend에서 difficulty_of_choices를 더하거나 뺌
-    if random.choice([True, False]):
-        addend += adjusted_difficulty
-    else:
-        addend -= adjusted_difficulty
+    addend += adjusted_difficulty if random.choice([True, False]) else -adjusted_difficulty
 
+    # 선택지의 순서를 섞음
     if random.choice([True, False]):
         return (('*', multiplier), ('+', addend))
     else:
