@@ -1,4 +1,5 @@
 import random
+import time
 
 def generate_initial_player_state():
     player_state = random.randint(1, 9)
@@ -41,8 +42,12 @@ if __name__ == "__main__":
     DIFFICULTY_DELTA = 1
     MULTIPLIER_RANGE = 10
 
-    player_state = generate_initial_player_state()
+    while True:
+        player_state = generate_initial_player_state()
+        choices = generate_choices(player_state, DIFFICULTY_OF_CHOICES, DIFFICULTY_DELTA, MULTIPLIER_RANGE)
 
-    choices = generate_choices(player_state, DIFFICULTY_OF_CHOICES, DIFFICULTY_DELTA, MULTIPLIER_RANGE)
-    print("player_state:", player_state, sep='\t')
-    print_choices(choices)
+        print("player_state:", player_state, sep='\t')
+        print_choices(choices)
+        print()
+
+        time.sleep(2)
