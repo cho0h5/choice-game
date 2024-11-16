@@ -23,7 +23,10 @@ def generate_choices(player_state, difficulty_of_choices, difficulty_delta, mult
     else:
         addend -= adjusted_difficulty
 
-    return (('*', multiplier), ('+', addend))
+    if random.choice([True, False]):
+        return (('*', multiplier), ('+', addend))
+    else:
+        return (('+', addend), ('*', multiplier))
 
 if __name__ == "__main__":
     DIFFICULTY_OF_CHOICES = 10
