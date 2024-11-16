@@ -29,7 +29,7 @@ def generate_choices(player_state, difficulty_of_choices, difficulty_delta, mult
         return (('+', addend), ('*', multiplier))
 
 if __name__ == "__main__":
-    DIFFICULTY_OF_CHOICES = 10
+    DIFFICULTY_OF_CHOICES = 5
     DIFFICULTY_DELTA = 1
     MULTIPLIER_RANGE = 10
 
