@@ -1,3 +1,8 @@
+# Run
+```sh
+python3 main.py
+```
+
 # Output Example
 ```
 3
