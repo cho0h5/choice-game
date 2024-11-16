@@ -15,7 +15,6 @@ def generate_choices(player_state, difficulty_of_choices, difficulty_delta, mult
     # difficulty_of_choices에 변동 추가
     delta = random.randint(-difficulty_delta, difficulty_delta)
     adjusted_difficulty = difficulty_of_choices + delta
-    print(adjusted_difficulty)
 
     # 절반의 확률로 addend에서 difficulty_of_choices를 더하거나 뺌
     addend += adjusted_difficulty if random.choice([True, False]) else -adjusted_difficulty
