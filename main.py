@@ -6,7 +6,7 @@ def generate_initial_player_state():
     player_state = random.randint(1, 9)
     return player_state
 
-def generate_choices(player_state, difficulty_of_choices, multiplier_range):
+def generate_choices(player_state, difficulty_of_choices, multiplier_range=9):
     # 곱하기 연산자의 오른쪽 피연산자 생성
     multiplier = random.randint(1, multiplier_range)
     # 곱하기 연산 했을 때 정답 계산
@@ -37,7 +37,6 @@ def print_choices(choices):
 
 if __name__ == "__main__":
     DIFFICULTY_OF_CHOICES = 5
-    MULTIPLIER_RANGE = 10
 
     print(3)
     time.sleep(1)
@@ -49,7 +48,7 @@ if __name__ == "__main__":
 
     while True:
         player_state = generate_initial_player_state()
-        choices = generate_choices(player_state, DIFFICULTY_OF_CHOICES, MULTIPLIER_RANGE)
+        choices = generate_choices(player_state, DIFFICULTY_OF_CHOICES)
 
         print("player_state:", player_state, sep='\t')
         print_choices(choices)
