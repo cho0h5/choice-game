@@ -43,7 +43,7 @@ def generate_choices(player_state, difficulty_of_choices, multiplier_range=9):
 def choice_to_str(choice):
     operator = choice[0]
     operand = str(choice[1])
-    result = "*" if operator == "*" else "plus"
+    result = "x" if operator == "*" else "+"
     result += operand
     return result
 
