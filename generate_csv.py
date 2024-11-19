@@ -47,6 +47,29 @@ def choice_to_str(choice):
     result += operand
     return result
 
+def calculate_answer(player_state, choices):
+    first_operator = choices[0][0]
+    first_operand = choices[0][1]
+    second_operator = choices[1][0]
+    second_operand = choices[1][1]
+
+    first_result = 0
+    if first_operator == "*":
+        first_result = player_state * first_operand
+    else:
+        first_result = player_state + first_operand
+
+    second_result = 0
+    if second_operator == "*":
+        second_result = player_state * second_operand
+    else:
+        second_result = player_state + second_operand
+
+    if first_result > second_result:
+        return "left"
+    else:
+        return "right"
+
 def generate_csv_from_pool(pool):
     csvfile = open("choicies.csv", "w")
     csvwriter = csv.writer(csvfile)
@@ -57,11 +80,13 @@ def generate_csv_from_pool(pool):
         for difficulty_of_choices in range(1, 16):
             player_state = pool[difficulty_of_choices][j]
             choice = generate_choices(player_state, difficulty_of_choices, multiplier_range=9)
+            answer = calculate_answer(player_state, choice)
             csvwriter.writerow([index_,
                                 choice_to_str(choice[0]),
                                 choice_to_str(choice[1]),
                                 player_state,
                                 difficulty_of_choices,
+                                answer,
                                 round_,
                                 set_])
             index_ += 1
