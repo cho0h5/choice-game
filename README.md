@@ -30,6 +30,6 @@ choices:	+25 / *4
 - choices: 15 / set
 
 ## Example
-|index|left|right|player_state|difficulty_of_choices|round|set|
-|-----|----|-----|------------|---------------------|-----|---|
-|    1|  x3|plus3|           1|                    1|    1|  1|
+|index|left|right|player_state|difficulty_of_choices|answer|round|set|
+|-----|----|-----|------------|---------------------|------|-----|---|
+|    1|  x3|plus3|           1|                    1| right|    1|  1|
