@@ -40,6 +40,13 @@ def generate_choices(player_state, difficulty_of_choices, multiplier_range=9):
     else:
         return (('+', addend), ('*', multiplier))
 
+def choice_to_str(choice):
+    operator = choice[0]
+    operand = str(choice[1])
+    result = "*" if operator == "*" else "plus"
+    result += operand
+    return result
+
 def generate_csv_from_pool(pool):
     csvfile = open("choicies.csv", "w")
     csvwriter = csv.writer(csvfile)
@@ -49,10 +56,16 @@ def generate_csv_from_pool(pool):
     for difficulty_of_choices, v in pool.items():
         for player_state in v:
             choice = generate_choices(player_state, difficulty_of_choices, multiplier_range=9)
-            csvwriter.writerow([index_, player_state, difficulty_of_choices, round_, set_])
-
+            csvwriter.writerow([index_,
+                                choice_to_str(choice[0]),
+                                choice_to_str(choice[1]),
+                                player_state,
+                                difficulty_of_choices,
+                                round_,
+                                set_])
             index_ += 1
-            set_ += 1
+            if (index_ - 1) % 15 == 0:
+                set_ += 1
             if set_ == 6:
                 round_ += 1
                 set_ = 1
