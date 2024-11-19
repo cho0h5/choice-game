@@ -53,7 +53,14 @@ def print_choices(choices):
     print(" / ", end="")
     print(second_operator + second_operand)
 
+def generate_csv_from_pool(pool):
+    for difficulty_of_choices, v in pool.items():
+        for player_state in v:
+            choice = generate_choices(player_state, difficulty_of_choices, multiplier_range=9)
+            print_choices(choice)
+        print()
 
 if __name__ == "__main__":
-    choices_pool = generate_pool()
-    print_pool(choices_pool)
+    pool = generate_pool()
+    print_pool(pool)
+    generate_csv_from_pool(pool)
