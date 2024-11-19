@@ -53,8 +53,8 @@ def generate_csv_from_pool(pool):
     index_ = 1;
     round_ = 1;
     set_ = 1;
-    for difficulty_of_choices in range(1, 16):
-        for j in range(15):
+    for j in range(15):
+        for difficulty_of_choices in range(1, 16):
             player_state = pool[difficulty_of_choices][j]
             choice = generate_choices(player_state, difficulty_of_choices, multiplier_range=9)
             csvwriter.writerow([index_,
