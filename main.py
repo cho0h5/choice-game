@@ -15,7 +15,10 @@ def generate_choices(player_state, difficulty_of_choices, multiplier_range=9):
     addend = answer - player_state
 
     # 절반의 확률로 addend에서 difficulty_of_choices를 더하거나 뺌
-    addend += difficulty_of_choices if random.choice([True, False]) else -difficulty_of_choices
+    if random.choice([True, False]):
+        addend += difficulty_of_choices
+    else:
+        addend -= difficulty_of_choices
 
     # 선택지의 순서를 섞음
     if random.choice([True, False]):
