@@ -73,6 +73,14 @@ def calculate_answer(player_state, choices):
 def generate_csv_from_pool(pool):
     csvfile = open("choicies.csv", "w")
     csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(["index",
+                        "left",
+                        "right",
+                        "player_state",
+                        "difficulty_of_choices",
+                        "answer",
+                        "round",
+                        "set"])
     index_ = 1;
     round_ = 1;
     set_ = 1;
@@ -87,8 +95,8 @@ def generate_csv_from_pool(pool):
                                 player_state,
                                 difficulty_of_choices,
                                 answer,
-                                round_,
-                                set_])
+                                str(round_) + "-" + str(set_),
+                                (index_ - 1) % 15 + 1])
             index_ += 1
             if (index_ - 1) % 15 == 0:
                 set_ += 1
