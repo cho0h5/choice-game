@@ -1,5 +1,5 @@
 import random
-import time
+import csv
 
 def generate_pool():
     pool = {}
@@ -42,23 +42,23 @@ def generate_choices(player_state, difficulty_of_choices, multiplier_range=9):
     else:
         return (('+', addend), ('*', multiplier))
 
-def print_choices(choices):
-    first_operator = choices[0][0]
-    first_operand = str(choices[0][1])
-    second_operator = choices[1][0]
-    second_operand = str(choices[1][1])
-
-    print("choices:\t", end="")
-    print(first_operator + first_operand, end="")
-    print(" / ", end="")
-    print(second_operator + second_operand)
-
 def generate_csv_from_pool(pool):
+    csvfile = open("choicies.csv", "w")
+    csvwriter = csv.writer(csvfile)
+    index_ = 1;
+    round_ = 1;
+    set_ = 1;
     for difficulty_of_choices, v in pool.items():
         for player_state in v:
             choice = generate_choices(player_state, difficulty_of_choices, multiplier_range=9)
-            print_choices(choice)
-        print()
+            csvwriter.writerow([index_, player_state, difficulty_of_choices, round_, set_])
+
+            index_ += 1
+            set_ += 1
+            if set_ == 6:
+                round_ += 1
+                set_ = 1
+    csvfile.close()
 
 if __name__ == "__main__":
     pool = generate_pool()
