@@ -2,17 +2,15 @@ import random
 import csv
 
 def generate_pool():
+    player_states = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     pool = {}
     for i in range(1, 16):
-        pool[i] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    state = 1
-    count = 0
-    for j in range(6):
-        for i in range(1, 16):
-            pool[i].append(state)
-            count += 1
-            if count % 10 == 0:
-                state += 1
+        pool[i] = []
+    index = 0
+    for i in range(1, 16):
+        for j in range(15):
+            pool[i].append(player_states[index % 9])
+            index += 1
     return pool
 
 def print_pool(pool):
