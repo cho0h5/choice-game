@@ -1,6 +1,6 @@
 # Run
 ```sh
-python3 main.py
+python3 demo.py
 ```
 
 # Output Example
